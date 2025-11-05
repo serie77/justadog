@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: white;
+            font-family: 'Comic Neue', cursive, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        a:visited {
+            color: inherit;
+        }
+        
+        .dog-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: inline-block;
+        }
+        
+        .dog-image {
+            max-width: 150px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .dog-link:hover {
+            opacity: 0.8;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+
+        }
+        
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .section h2 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .section h2 a:hover {
+            opacity: 0.7;
+        }
+        
+        .section a {
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .section a:hover {
+            opacity: 0.7;
+        }
+        
+        .x-logo {
+            width: 40px;
+            height: 40px;
+            fill: #333;
+        }
+        
+        .coin-address {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #333;
+            word-break: break-all;
+            padding: 10px;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+        
+        .coin-address:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .coin-address.copied {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .tweet-embed {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .tweet-image-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .tweet-image {
+            max-width: 50%;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            flex-shrink: 0;
+        }
+        
+        .tweet-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            text-align: left;
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .tweet-image-section {
+                flex-direction: column;
+            }
+            
+            .tweet-image {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://pump.fun/coin/7Mk8rfgdCZ2CF1tCoEcMy9uCFV3MkdfkdfyHmaU1pump" class="dog-link" id="dog-link">
+        <img src="LOGO.png" alt="Dog" class="dog-image">
+    </a>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Community</h2>
+            <a href="https://x.com/i/communities/1985915016550203503" id="community-link">
+                <svg class="x-logo" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.501 19.917L7.471 21H.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977.963 0 1.95.212 2.87.672-.444.478-.851 1.03-1.212 1.656-.507-.204-1.054-.329-1.658-.329-2.767 0-4.57 2.223-4.938 6.004H7.56c-.023.302-.05.599-.059.917zm15.998.056L23.528 21H9.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977s6.816 2.358 7 8.977zM21.437 19c-.367-3.781-2.17-6.004-4.938-6.004s-4.57 2.223-4.938 6.004h9.875zm-4.938-9c-.799 0-1.527-.279-2.116-.73-.836-.64-1.384-1.638-1.384-2.77 0-1.93 1.567-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 1.132-.548 2.13-1.384 2.77-.589.451-1.317.73-2.116.73zm-1.5-3.5c0 .827.673 1.5 1.5 1.5s1.5-.673 1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5 1.5zM7.5 3C9.433 3 11 4.57 11 6.5S9.433 10 7.5 10 4 8.43 4 6.5 5.567 3 7.5 3zm0 2C6.673 5 6 5.673 6 6.5S6.673 8 7.5 8 9 7.327 9 6.5 8.327 5 7.5 5z"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="section">
+            <h2>Coin Address</h2>
+            <div class="coin-address" id="coin-address">7Mk8rfgdCZ2CF1tCoEcMy9uCFV3MkdfkdfyHmaU1pump</div>
+        </div>
+        
+        <div class="section">
+            <h2><a href="https://x.com/winterwonder88/status/1985914186568958294">Origin</a></h2>
+            <div class="tweet-embed">
+                <blockquote class="twitter-tweet" data-theme="light">
+                    <a href="https://x.com/winterwonder88/status/1985914186568958294"></a>
+                </blockquote>
+            </div>
+            <div class="tweet-image-section">
+                <img src="tweet.png" alt="Tweet" class="tweet-image">
+                <div class="tweet-text">
+                    <p>I'm a time traveller from 2027. <br><br>
+                        Solana is currently $500. 
+                        The number one SOL memecoin is a http://Pump.fun coin simply titled "dog". 
+                        <br><br>Now I'm back and ready to run $dog to fulfill the future.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const coinAddress = document.getElementById('coin-address');
+        
+        coinAddress.addEventListener('click', async () => {
+            const address = coinAddress.textContent.trim();
+            
+            try {
+                await navigator.clipboard.writeText(address);
+                
+                // Visual feedback
+                const originalText = coinAddress.textContent;
+                coinAddress.textContent = 'Copied!';
+                coinAddress.classList.add('copied');
+                
+                setTimeout(() => {
+                    coinAddress.textContent = originalText;
+                    coinAddress.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = address;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Visual feedback
+                const originalText = coinAddress.textContent;
+                coinAddress.textContent = 'Copied!';
+                coinAddress.classList.add('copied');
+                
+                setTimeout(() => {
+                    coinAddress.textContent = originalText;
+                    coinAddress.classList.remove('copied');
+                }, 2000);
+            }
+        });
+    </script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
