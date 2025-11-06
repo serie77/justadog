@@ -53,6 +53,313 @@
         .dog-link:hover {
             opacity: 0.8;
         }
+
+        .pfp-gen-text {
+            position: absolute;
+            top: 165px;
+            left: 20px;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s ease infinite;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            width: 150px;
+            text-align: center;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .pfp-gen-text:hover {
+            transform: scale(1.1);
+            transition: transform 0.2s;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 20px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+
+        .pfp-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .canvas-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #pfp-canvas {
+            border: 3px solid #333;
+            border-radius: 10px;
+            max-width: 500px;
+            cursor: crosshair;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-group label {
+            min-width: 80px;
+            font-weight: 600;
+        }
+
+        .control-group input[type="range"] {
+            flex: 1;
+        }
+
+        .control-group input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Comic Neue', cursive, sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .assets-area {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .asset-section {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .asset-section h3 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .asset-box {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+            margin-bottom: 10px;
+        }
+
+        .asset-box:hover {
+            border-color: #4CAF50;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .asset-box.selected {
+            border-color: #4CAF50;
+            border-width: 3px;
+            background-color: #e8f5e9;
+        }
+
+        .asset-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .wizard-hats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .wizard-hats .asset-box {
+            margin-bottom: 0;
+        }
+
+        .accessories-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .accessories-grid .asset-box {
+            margin-bottom: 0;
+        }
+
+        .upload-section {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px dashed #ccc;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .upload-section:hover {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+
+        .upload-section input[type="file"] {
+            display: none;
+        }
+
+        .completion-view {
+            display: none;
+            text-align: center;
+        }
+
+        .completion-view.active {
+            display: block;
+        }
+
+        .editor-view.hidden {
+            display: none;
+        }
+
+        .final-image-container {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .final-image {
+            border: 3px solid #333;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            cursor: context-menu;
+        }
+
+        .completion-instructions {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .completion-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1024px) {
+            .pfp-container {
+                flex-direction: column;
+            }
+
+            .assets-area {
+                flex: 1;
+                width: 100%;
+            }
+
+            .wizard-hats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .accessories-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
         
         .container {
             text-align: center;
@@ -162,7 +469,133 @@
     <a href="https://pump.fun/coin/7Mk8rfgdCZ2CF1tCoEcMy9uCFV3MkdfkdfyHmaU1pump" class="dog-link" id="dog-link">
         <img src="LOGO.png" alt="Dog" class="dog-image">
     </a>
-    
+
+    <div class="pfp-gen-text" id="pfp-gen-btn">pfp gen</div>
+
+    <!-- PFP Generator Modal -->
+    <div id="pfp-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="margin-bottom: 20px;">PFP Generator</h2>
+
+            <!-- Editor View -->
+            <div class="editor-view">
+            <div class="pfp-container">
+                <div class="canvas-area">
+                    <canvas id="pfp-canvas" width="500" height="500"></canvas>
+
+                    <div class="controls">
+                        <div class="control-group">
+                            <label>Width:</label>
+                            <input type="range" id="width-slider" min="10" max="500" value="100">
+                            <input type="number" id="width-input" min="10" max="500" value="100">
+                        </div>
+
+                        <div class="control-group">
+                            <label>Height:</label>
+                            <input type="range" id="height-slider" min="10" max="500" value="100">
+                            <input type="number" id="height-input" min="10" max="500" value="100">
+                        </div>
+
+                        <div class="control-group">
+                            <label>Rotation:</label>
+                            <input type="range" id="rotation-slider" min="0" max="360" value="0">
+                            <input type="number" id="rotation-input" min="0" max="360" value="0">
+                        </div>
+
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <button class="btn btn-danger" id="delete-layer">Delete Selected Layer</button>
+                            <button class="btn btn-secondary" id="clear-all">Clear All Layers</button>
+                            <button class="btn btn-primary" id="complete-pfp">Complete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assets-area">
+                    <div class="upload-section" id="upload-section">
+                        <h3>Upload Your Own Image</h3>
+                        <p>Click to upload</p>
+                        <input type="file" id="file-input" accept="image/*">
+                    </div>
+
+                    <div class="asset-section">
+                        <h3>Wizard Hats</h3>
+                        <div class="wizard-hats">
+                            <div class="asset-box" data-asset="assets/wizardhat-blue.png">
+                                <img src="assets/wizardhat-blue.png" alt="Blue Wizard Hat">
+                            </div>
+                            <div class="asset-box" data-asset="assets/wizardhat-green.png">
+                                <img src="assets/wizardhat-green.png" alt="Green Wizard Hat">
+                            </div>
+                            <div class="asset-box" data-asset="assets/wizardhat-pink.png">
+                                <img src="assets/wizardhat-pink.png" alt="Pink Wizard Hat">
+                            </div>
+                            <div class="asset-box" data-asset="assets/wizardhat-purple.png">
+                                <img src="assets/wizardhat-purple.png" alt="Purple Wizard Hat">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="asset-section">
+                        <h3>Accessories</h3>
+                        <div class="accessories-grid">
+                            <div class="asset-box" data-asset="assets/strawhat.png">
+                                <img src="assets/strawhat.png" alt="Straw Hat">
+                            </div>
+                            <div class="asset-box" data-asset="assets/angry.png">
+                                <img src="assets/angry.png" alt="Angry">
+                            </div>
+                            <div class="asset-box" data-asset="assets/exclamationmark.png">
+                                <img src="assets/exclamationmark.png" alt="Exclamation Mark">
+                            </div>
+                            <div class="asset-box" data-asset="assets/would.png">
+                                <img src="assets/would.png" alt="Would">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="asset-section">
+                        <h3>Backgrounds</h3>
+                        <div class="accessories-grid">
+                            <div class="asset-box bg-preset" data-bg-num="1">
+                                <img src="assets/bg1.png" alt="Background 1">
+                            </div>
+                            <div class="asset-box bg-preset" data-bg-num="2">
+                                <img src="assets/bg2.png" alt="Background 2">
+                            </div>
+                            <div class="asset-box bg-preset" data-bg-num="3">
+                                <img src="assets/bg3.png" alt="Background 3">
+                            </div>
+                            <div class="asset-box bg-preset" data-bg-num="4">
+                                <img src="assets/bg4.png" alt="Background 4">
+                            </div>
+                            <div class="asset-box bg-preset" data-bg-num="5">
+                                <img src="assets/bg5.png" alt="Background 5">
+                            </div>
+                        </div>
+                        <button class="btn btn-danger" id="remove-background" style="margin-top: 10px; width: 100%; display: none;">X Remove Background</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Completion View -->
+            <div class="completion-view">
+                <h3>Your PFP is Ready!</h3>
+                <p class="completion-instructions">Right-click the image below to save it, or copy to clipboard</p>
+
+                <div class="final-image-container">
+                    <img id="final-pfp-image" class="final-image" alt="Your completed PFP">
+                </div>
+
+                <div class="completion-buttons">
+                    <button class="btn btn-secondary" id="go-back-edit">Go Back to Edit</button>
+                    <a href="https://x.com/i/communities/1985915016550203503" target="_blank" class="btn btn-primary" style="text-decoration: none; display: inline-block;">Post in Community</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="section">
             <h2>Community</h2>
@@ -198,6 +631,485 @@
     </div>
     
     <script>
+        // PFP Generator Code
+        const modal = document.getElementById('pfp-modal');
+        const pfpGenBtn = document.getElementById('pfp-gen-btn');
+        const closeBtn = document.querySelector('.close');
+        const canvas = document.getElementById('pfp-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let layers = [];
+        let selectedLayerIndex = -1;
+        let isDragging = false;
+        let isResizing = false;
+        let resizeCorner = null;
+        let dragStart = { x: 0, y: 0 };
+        let resizeStart = { width: 0, height: 0, x: 0, y: 0 };
+        let baseImage = new Image();
+        let backgroundImage = null;
+
+        // Load dog.jpg as base
+        baseImage.src = 'dog.jpg';
+        baseImage.onload = () => {
+            redrawCanvas();
+        };
+
+        // Modal controls
+        pfpGenBtn.onclick = () => {
+            modal.classList.add('show');
+            setTimeout(() => redrawCanvas(), 100);
+        };
+
+        closeBtn.onclick = () => {
+            modal.classList.remove('show');
+        };
+
+        window.onclick = (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        };
+
+        // Layer class
+        class Layer {
+            constructor(image, x, y, width, height, rotation) {
+                this.image = image;
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.rotation = rotation;
+            }
+
+            draw(ctx) {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.rotation * Math.PI) / 180);
+                ctx.drawImage(this.image, -this.width / 2, -this.height / 2, this.width, this.height);
+                ctx.restore();
+
+                // Draw selection box and resize handles if selected
+                if (layers[selectedLayerIndex] === this) {
+                    ctx.save();
+                    ctx.strokeStyle = '#4CAF50';
+                    ctx.lineWidth = 3;
+                    ctx.setLineDash([5, 5]);
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate((this.rotation * Math.PI) / 180);
+                    ctx.strokeRect(-this.width / 2, -this.height / 2, this.width, this.height);
+
+                    // Draw resize handles at corners
+                    ctx.fillStyle = '#4CAF50';
+                    const handleSize = 10;
+                    ctx.fillRect(-this.width / 2 - handleSize/2, -this.height / 2 - handleSize/2, handleSize, handleSize);
+                    ctx.fillRect(this.width / 2 - handleSize/2, -this.height / 2 - handleSize/2, handleSize, handleSize);
+                    ctx.fillRect(-this.width / 2 - handleSize/2, this.height / 2 - handleSize/2, handleSize, handleSize);
+                    ctx.fillRect(this.width / 2 - handleSize/2, this.height / 2 - handleSize/2, handleSize, handleSize);
+
+                    ctx.restore();
+                }
+            }
+
+            contains(x, y) {
+                const dx = x - this.x;
+                const dy = y - this.y;
+                const angle = -this.rotation * Math.PI / 180;
+                const rotatedX = dx * Math.cos(angle) - dy * Math.sin(angle);
+                const rotatedY = dx * Math.sin(angle) + dy * Math.cos(angle);
+                return Math.abs(rotatedX) <= this.width / 2 && Math.abs(rotatedY) <= this.height / 2;
+            }
+
+            isNearCorner(x, y) {
+                const dx = x - this.x;
+                const dy = y - this.y;
+                const angle = -this.rotation * Math.PI / 180;
+                const rotatedX = dx * Math.cos(angle) - dy * Math.sin(angle);
+                const rotatedY = dx * Math.sin(angle) + dy * Math.cos(angle);
+
+                const handleSize = 20;
+                const corners = [
+                    { x: -this.width / 2, y: -this.height / 2, name: 'tl' },
+                    { x: this.width / 2, y: -this.height / 2, name: 'tr' },
+                    { x: -this.width / 2, y: this.height / 2, name: 'bl' },
+                    { x: this.width / 2, y: this.height / 2, name: 'br' }
+                ];
+
+                for (let corner of corners) {
+                    if (Math.abs(rotatedX - corner.x) < handleSize && Math.abs(rotatedY - corner.y) < handleSize) {
+                        return corner.name;
+                    }
+                }
+                return false;
+            }
+        }
+
+        // Redraw canvas
+        function redrawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw background image if set
+            if (backgroundImage && backgroundImage.complete) {
+                ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+            }
+
+            // Draw base dog image
+            if (baseImage.complete) {
+                ctx.drawImage(baseImage, 0, 0, canvas.width, canvas.height);
+            }
+
+            // Draw all layers
+            layers.forEach(layer => layer.draw(ctx));
+        }
+
+        // Asset box click (excluding background presets)
+        document.querySelectorAll('.asset-box:not(.bg-preset)').forEach(box => {
+            box.addEventListener('click', function() {
+                const assetPath = this.getAttribute('data-asset');
+                const img = new Image();
+                img.src = assetPath;
+                img.onload = () => {
+                    // Calculate dimensions preserving aspect ratio
+                    const aspectRatio = img.width / img.height;
+                    let width = 150;
+                    let height = 150 / aspectRatio;
+
+                    // If height is too large, scale based on height instead
+                    if (height > 200) {
+                        height = 200;
+                        width = 200 * aspectRatio;
+                    }
+
+                    const layer = new Layer(img, canvas.width / 2, canvas.height / 2, width, height, 0);
+                    layers.push(layer);
+                    selectedLayerIndex = layers.length - 1;
+                    updateControls();
+                    redrawCanvas();
+                };
+
+                // Visual feedback
+                document.querySelectorAll('.asset-box:not(.bg-preset)').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // File upload
+        const uploadSection = document.getElementById('upload-section');
+        const fileInput = document.getElementById('file-input');
+
+        uploadSection.onclick = () => fileInput.click();
+
+        fileInput.onchange = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.src = event.target.result;
+                    img.onload = () => {
+                        // Calculate dimensions preserving aspect ratio
+                        const aspectRatio = img.width / img.height;
+                        let width = 150;
+                        let height = 150 / aspectRatio;
+
+                        // If height is too large, scale based on height instead
+                        if (height > 200) {
+                            height = 200;
+                            width = 200 * aspectRatio;
+                        }
+
+                        const layer = new Layer(img, canvas.width / 2, canvas.height / 2, width, height, 0);
+                        layers.push(layer);
+                        selectedLayerIndex = layers.length - 1;
+                        updateControls();
+                        redrawCanvas();
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+
+        // Background preset click
+        document.querySelectorAll('.bg-preset').forEach(box => {
+            box.addEventListener('click', function() {
+                const bgNum = this.getAttribute('data-bg-num');
+
+                // Load background image
+                const bgImg = new Image();
+                bgImg.src = `assets/bg${bgNum}.png`;
+                bgImg.onload = () => {
+                    backgroundImage = bgImg;
+                    redrawCanvas();
+                };
+
+                // Load corresponding dog image
+                const dogImg = new Image();
+                dogImg.src = `assets/dogbg${bgNum}.png`;
+                dogImg.onload = () => {
+                    baseImage = dogImg;
+                    redrawCanvas();
+                };
+
+                // Visual feedback
+                document.querySelectorAll('.bg-preset').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+
+                // Show remove background button
+                document.getElementById('remove-background').style.display = 'block';
+            });
+        });
+
+        // Remove background button
+        document.getElementById('remove-background').onclick = () => {
+            // Reset to original dog
+            const dogImg = new Image();
+            dogImg.src = 'dog.jpg';
+            dogImg.onload = () => {
+                baseImage = dogImg;
+                backgroundImage = null;
+                redrawCanvas();
+
+                // Clear selection
+                document.querySelectorAll('.bg-preset').forEach(b => b.classList.remove('selected'));
+
+                // Hide remove background button
+                document.getElementById('remove-background').style.display = 'none';
+            };
+        };
+
+        // Canvas interaction
+        canvas.addEventListener('mousedown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Check if clicking on a layer (reverse order for top-most)
+            for (let i = layers.length - 1; i >= 0; i--) {
+                if (layers[i].contains(x, y)) {
+                    selectedLayerIndex = i;
+
+                    // Check if clicking near a corner for resizing
+                    const corner = layers[i].isNearCorner(x, y);
+                    if (corner) {
+                        isResizing = true;
+                        resizeCorner = corner;
+                        resizeStart = {
+                            x,
+                            y,
+                            width: layers[i].width,
+                            height: layers[i].height
+                        };
+                    } else {
+                        isDragging = true;
+                        dragStart = { x, y };
+                    }
+
+                    updateControls();
+                    redrawCanvas();
+                    return;
+                }
+            }
+
+            // Deselect if clicking empty space
+            selectedLayerIndex = -1;
+            updateControls();
+            redrawCanvas();
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (isDragging && selectedLayerIndex !== -1) {
+                const dx = x - dragStart.x;
+                const dy = y - dragStart.y;
+
+                layers[selectedLayerIndex].x += dx;
+                layers[selectedLayerIndex].y += dy;
+
+                dragStart = { x, y };
+                redrawCanvas();
+            } else if (isResizing && selectedLayerIndex !== -1) {
+                const dx = x - resizeStart.x;
+                const dy = y - resizeStart.y;
+
+                // Calculate scale based on which corner is being dragged
+                let scaleX = 1;
+                let scaleY = 1;
+
+                if (resizeCorner === 'br') {
+                    // Bottom right - both positive
+                    scaleX = 1 + dx / resizeStart.width;
+                    scaleY = 1 + dy / resizeStart.height;
+                } else if (resizeCorner === 'bl') {
+                    // Bottom left - x negative, y positive
+                    scaleX = 1 - dx / resizeStart.width;
+                    scaleY = 1 + dy / resizeStart.height;
+                } else if (resizeCorner === 'tr') {
+                    // Top right - x positive, y negative
+                    scaleX = 1 + dx / resizeStart.width;
+                    scaleY = 1 - dy / resizeStart.height;
+                } else if (resizeCorner === 'tl') {
+                    // Top left - both negative
+                    scaleX = 1 - dx / resizeStart.width;
+                    scaleY = 1 - dy / resizeStart.height;
+                }
+
+                layers[selectedLayerIndex].width = Math.max(10, resizeStart.width * scaleX);
+                layers[selectedLayerIndex].height = Math.max(10, resizeStart.height * scaleY);
+
+                updateControls();
+                redrawCanvas();
+            } else if (selectedLayerIndex !== -1) {
+                // Change cursor if hovering over corner
+                if (layers[selectedLayerIndex].isNearCorner(x, y)) {
+                    canvas.style.cursor = 'nwse-resize';
+                } else if (layers[selectedLayerIndex].contains(x, y)) {
+                    canvas.style.cursor = 'move';
+                } else {
+                    canvas.style.cursor = 'crosshair';
+                }
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isDragging = false;
+            isResizing = false;
+            resizeCorner = null;
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            isDragging = false;
+            isResizing = false;
+            resizeCorner = null;
+        });
+
+        // Controls
+        const widthSlider = document.getElementById('width-slider');
+        const widthInput = document.getElementById('width-input');
+        const heightSlider = document.getElementById('height-slider');
+        const heightInput = document.getElementById('height-input');
+        const rotationSlider = document.getElementById('rotation-slider');
+        const rotationInput = document.getElementById('rotation-input');
+
+        widthSlider.oninput = widthInput.oninput = (e) => {
+            const value = parseInt(e.target.value);
+            widthSlider.value = value;
+            widthInput.value = value;
+            if (selectedLayerIndex !== -1) {
+                layers[selectedLayerIndex].width = value;
+                redrawCanvas();
+            }
+        };
+
+        heightSlider.oninput = heightInput.oninput = (e) => {
+            const value = parseInt(e.target.value);
+            heightSlider.value = value;
+            heightInput.value = value;
+            if (selectedLayerIndex !== -1) {
+                layers[selectedLayerIndex].height = value;
+                redrawCanvas();
+            }
+        };
+
+        rotationSlider.oninput = rotationInput.oninput = (e) => {
+            const value = parseInt(e.target.value);
+            rotationSlider.value = value;
+            rotationInput.value = value;
+            if (selectedLayerIndex !== -1) {
+                layers[selectedLayerIndex].rotation = value;
+                redrawCanvas();
+            }
+        };
+
+        function updateControls() {
+            if (selectedLayerIndex !== -1) {
+                const layer = layers[selectedLayerIndex];
+                widthSlider.value = Math.round(layer.width);
+                widthInput.value = Math.round(layer.width);
+                heightSlider.value = Math.round(layer.height);
+                heightInput.value = Math.round(layer.height);
+                rotationSlider.value = layer.rotation;
+                rotationInput.value = layer.rotation;
+            } else {
+                widthSlider.value = 100;
+                widthInput.value = 100;
+                heightSlider.value = 100;
+                heightInput.value = 100;
+                rotationSlider.value = 0;
+                rotationInput.value = 0;
+            }
+        }
+
+        // Delete layer
+        document.getElementById('delete-layer').onclick = () => {
+            if (selectedLayerIndex !== -1) {
+                layers.splice(selectedLayerIndex, 1);
+                selectedLayerIndex = -1;
+                updateControls();
+                redrawCanvas();
+            }
+        };
+
+        // Clear all
+        document.getElementById('clear-all').onclick = () => {
+            if (confirm('Are you sure you want to clear all layers?')) {
+                layers = [];
+                selectedLayerIndex = -1;
+                updateControls();
+                redrawCanvas();
+            }
+        };
+
+        // Complete PFP - Show completion view
+        document.getElementById('complete-pfp').onclick = () => {
+            // Create a new canvas to copy the current canvas content
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = canvas.width;
+            tempCanvas.height = canvas.height;
+            const tempCtx = tempCanvas.getContext('2d');
+
+            // Redraw everything on the temp canvas
+            tempCtx.clearRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+            // Draw background if set
+            if (backgroundImage && backgroundImage.complete) {
+                tempCtx.drawImage(backgroundImage, 0, 0, tempCanvas.width, tempCanvas.height);
+            }
+
+            // Draw base dog image
+            if (baseImage.complete) {
+                tempCtx.drawImage(baseImage, 0, 0, tempCanvas.width, tempCanvas.height);
+            }
+
+            // Draw all layers
+            layers.forEach(layer => {
+                tempCtx.save();
+                tempCtx.translate(layer.x, layer.y);
+                tempCtx.rotate((layer.rotation * Math.PI) / 180);
+                tempCtx.drawImage(layer.image, -layer.width / 2, -layer.height / 2, layer.width, layer.height);
+                tempCtx.restore();
+            });
+
+            // Replace the final image with the temp canvas
+            const finalImageContainer = document.querySelector('.final-image-container');
+            finalImageContainer.innerHTML = '';
+            tempCanvas.className = 'final-image';
+            tempCanvas.id = 'final-pfp-canvas';
+            finalImageContainer.appendChild(tempCanvas);
+
+            // Hide editor view and show completion view
+            document.querySelector('.editor-view').classList.add('hidden');
+            document.querySelector('.completion-view').classList.add('active');
+        };
+
+        // Go Back to Edit
+        document.getElementById('go-back-edit').onclick = () => {
+            document.querySelector('.editor-view').classList.remove('hidden');
+            document.querySelector('.completion-view').classList.remove('active');
+        };
+
+        // Coin address copy functionality
         const coinAddress = document.getElementById('coin-address');
         
         coinAddress.addEventListener('click', async () => {
